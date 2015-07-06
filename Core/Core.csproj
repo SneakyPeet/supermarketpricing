@@ -45,6 +45,7 @@
     <Compile Include="PricingModels\PriceEqualsCostPricing.cs" />
     <Compile Include="PricingModels\QuantityForPrice.cs" />
     <Compile Include="PricingModels\QuantityFreeForQuantityPricing.cs" />
+    <Compile Include="PricingUnits.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="ShoppingCart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

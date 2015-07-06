@@ -29,7 +29,7 @@ namespace Core
 
         private void AddItem(Product item)
         {
-            var cartItem = cartItems.SingleOrDefault(x => x.Id == item.ProductId);
+            var cartItem = cartItems.SingleOrDefault(x => x.Name == item.Name);
             if(cartItem != null)
             {
                 cartItem.AddItem();

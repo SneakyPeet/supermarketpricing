@@ -17,5 +17,11 @@ namespace Core.PricingModels
             var totalNotMatchingQuantity = quantity % this.quantityForPrice;
             return (totalMatchingQuantity * this.price) + (totalNotMatchingQuantity * cost);
         }
+
+        public string PricingInUnits(string token, int factor, int cost)
+        {
+            throw new System.NotImplementedException();
+        }
+
     }
 }

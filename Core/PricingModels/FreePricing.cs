@@ -6,5 +6,11 @@ namespace Core.PricingModels
         {
             return 0;
         }
+
+        public string PricingInUnits(string token, int factor, int cost)
+        {
+            return token + 0.ToString("0.00");
+        }
+
     }
 }

@@ -6,5 +6,10 @@
         {
             return cost * quantity;
         }
+
+        public string PricingInUnits(string token, int factor, int cost)
+        {
+            return token + ((decimal)cost / factor).ToString("0.00");
+        }
     }
 }

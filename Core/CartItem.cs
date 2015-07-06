@@ -11,11 +11,11 @@
             this.total = 1;
         }
 
-        public int Id
+        public string Name
         {
             get
             {
-                return this.product.ProductId;
+                return this.product.Name;
             }
         }
 

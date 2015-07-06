@@ -1,3 +1,5 @@
+using System;
+
 namespace Core.PricingModels
 {
     internal class QuantityFreeForQuantityPricing : IPricingModel
@@ -37,14 +39,18 @@ namespace Core.PricingModels
                 }
             }
             return price;
-            //var totalWithDiscount = quantity / TotalWithDiscount();
-            //var totalWithoutDiscount = quantity % TotalWithDiscount();
-            //return (totalWithDiscount * quantityToBuy * cost) + (totalWithoutDiscount*cost);
         }
 
-        private int TotalWithDiscount()
+        public string PricingInUnits(string token, int factor, int cost)
         {
-            return quantityToBuy + quantityFree;
+            return string.Format("{0} - Buy {1} For {2}", this.GetPricingInUnit(token, factor, cost), (this.quantityToBuy + this.quantityFree), this.GetPricingInUnit(token, factor, this.quantityToBuy * cost));
         }
+
+        private string GetPricingInUnit(string token, int factor, int cost)
+        {
+            return token + ((decimal)cost / factor).ToString("0.00");
+        }
+
+        
     }
 }
