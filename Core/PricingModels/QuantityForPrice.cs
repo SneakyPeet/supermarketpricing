@@ -1,4 +1,4 @@
-namespace Core
+namespace Core.PricingModels
 {
     internal class QuantityForPrice : IPricingModel 
     {
@@ -13,9 +13,9 @@ namespace Core
 
         public int CalculatePrice(int cost, int quantity)
         {
-            var totalMatchingQuantity = quantity/quantityForPrice;
-            var totalNotMatchingQuantity = quantity % quantityForPrice;
-            return (totalMatchingQuantity * price) + (totalNotMatchingQuantity * cost);
+            var totalMatchingQuantity = quantity/this.quantityForPrice;
+            var totalNotMatchingQuantity = quantity % this.quantityForPrice;
+            return (totalMatchingQuantity * this.price) + (totalNotMatchingQuantity * cost);
         }
     }
 }

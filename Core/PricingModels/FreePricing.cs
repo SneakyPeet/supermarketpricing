@@ -1,4 +1,4 @@
-namespace Core
+namespace Core.PricingModels
 {
     internal class FreePricing : IPricingModel 
     {

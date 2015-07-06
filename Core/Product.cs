@@ -1,4 +1,6 @@
-﻿namespace Core
+﻿using Core.PricingModels;
+
+namespace Core
 {
     public class Product
     {
