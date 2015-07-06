@@ -5,23 +5,23 @@ namespace Core
 {
     public class ShoppingCart
     {
-        private readonly List<Product> cartItems;
+        private readonly List<CartItem> cartItems;
 
         public ShoppingCart()
         {
-            this.cartItems = new List<Product>();
+            this.cartItems = new List<CartItem>();
         }
         public int Price
         {
             get
             {
-                return cartItems.Sum(x => x.Price);
+                return cartItems.Sum(x => x.GetPrice);
             }
         }
 
         public void AddItems(List<Product> items)
         {
-            foreach(var item in items)
+            foreach (var item in items)
             {
                 AddItem(item);
             }
@@ -29,7 +29,15 @@ namespace Core
 
         private void AddItem(Product item)
         {
-            cartItems.Add(item);
+            var cartItem = cartItems.SingleOrDefault(x => x.Id == item.ProductId);
+            if(cartItem != null)
+            {
+                cartItem.AddItem();
+            }
+            else
+            {
+                cartItems.Add(new CartItem(item));
+            }
         }
     }
 }

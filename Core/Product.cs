@@ -2,21 +2,20 @@
 {
     public class Product
     {
-        private readonly int productId;
+        public int ProductId { get; private set; }
         private readonly int cost;
+        private readonly IPricingModel pricingModel;
 
-        public Product(int productId, int cost)
+        public Product(int productId, int cost, IPricingModel pricingModel)
         {
-            this.productId = productId;
+            this.ProductId = productId;
             this.cost = cost;
+            this.pricingModel = pricingModel;
         }
 
-        public int Price
+        public int GetPrice(int quantity)
         {
-            get
-            {
-                return cost;
-            }
+            return pricingModel.CalculatePrice(cost,quantity);
         }
     }
 }
